@@ -13,15 +13,23 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-hateoas")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-data-rest")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.projectlombok:lombok:1.18.16")
+	implementation("org.projectlombok:lombok:1.18.16")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	implementation("org.jetbrains.exposed:exposed-core:0.29.1")
+	implementation("org.jetbrains.exposed:exposed-dao:0.29.1")
+	implementation("org.jetbrains.exposed:exposed-jdbc:0.29.1")
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
