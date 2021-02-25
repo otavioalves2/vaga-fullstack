@@ -32,12 +32,14 @@ class ProductController(@Autowired val productService: ProductService) {
     }
 
     //Endpoint for the GET method with <code_parameter>(our id),
-    //returns the product corresponding to the code entered in the parameter
+    //returns the list of products that met the search filters
     @RequestMapping(value = ["/{id}"],
             method = [RequestMethod.GET],
             produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun get(@PathVariable("id") id: String): ProductEntity {
-        return productService.get(id)
+    fun get(@PathVariable("id") id: String): List<ProductEntity> {
+        val product = productService.findProductByCode(id) + productService.findProductByName(id)
+
+        return product
     }
 
     //Endpoint for the PUT method with <code_parameter>(our id)/update,

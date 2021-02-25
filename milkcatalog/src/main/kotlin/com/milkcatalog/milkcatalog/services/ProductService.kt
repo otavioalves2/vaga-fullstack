@@ -11,4 +11,6 @@ interface ProductService {
     fun save(product: ProductEntity): ProductEntity
     fun update(product: ProductEntity, id: String): ProductEntity
     fun delete(id: String)
+    fun findProductByName(name: String): List<ProductEntity>
+    fun findProductByCode(code: String): List<ProductEntity>
 }

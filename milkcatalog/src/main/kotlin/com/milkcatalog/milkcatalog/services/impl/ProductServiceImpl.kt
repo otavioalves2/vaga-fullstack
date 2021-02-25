@@ -31,7 +31,7 @@ data class ProductServiceImpl(@Autowired val productRepository: ProductRepositor
     //Uses JpaRepository getOne method to get the product to be updated,
     //we replace the required values with the new values and insert them back into the database
     override fun update(product: ProductEntity, id: String): ProductEntity {
-        var edit: ProductEntity = productRepository.getOne(id)
+        val edit: ProductEntity = productRepository.getOne(id)
         edit.name = product.name
 
         return productRepository.save(edit)
@@ -40,6 +40,15 @@ data class ProductServiceImpl(@Autowired val productRepository: ProductRepositor
     //Uses JpaRepository delete method to delete the product that matches the id (in our case it's the code parameter)
     override fun delete(id: String) {
         productRepository.delete(productRepository.getOne(id))
+    }
+
+    //Implementation of the custom query that finds product by name from the product repository interface
+    override fun findProductByName(name: String): List<ProductEntity> {
+        return productRepository.findProductByName(name)
+    }
+    //Implementation of the custom query that finds product by code from the product repository interface
+    override fun findProductByCode(code: String): List<ProductEntity> {
+        return productRepository.findProductByCode(code)
     }
 
 }
