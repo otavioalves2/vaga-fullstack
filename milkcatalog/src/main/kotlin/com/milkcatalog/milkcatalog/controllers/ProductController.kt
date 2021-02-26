@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.*
 //Interface Adapters
 //REST API - Milk Catalog
 
+
 @RestController
+@CrossOrigin(origins = arrayOf("http://localhost:4200"))
 @RequestMapping(value = ["/product"])
 class ProductController(@Autowired val productService: ProductService) {
 
-    //Endpoint for the GET method without parameters, returns a list of all products
+    //Endpoint for the GET method without parameters, returns a list of all product
     @RequestMapping(value = [""],
             method = [RequestMethod.GET],
             produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -32,7 +34,7 @@ class ProductController(@Autowired val productService: ProductService) {
     }
 
     //Endpoint for the GET method with <code_parameter>(our id),
-    //returns the list of products that met the search filters
+    //returns the list of product that met the search filters
     @RequestMapping(value = ["/{id}"],
             method = [RequestMethod.GET],
             produces = [MediaType.APPLICATION_JSON_VALUE])

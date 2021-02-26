@@ -1,0 +1,25 @@
+<div id="flex-container-search">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.code}}</td>
+        <td>{{product.name}}</td>
+        <td id="flex-container-actions">
+          <button type="button" class="icon-button" aria-label="botão para editar o nome do produto"><fa-icon class="fa-lg" [icon]="farEdit"></fa-icon></button>
+          <button type="button" class="icon-button" aria-label="botão para excluir o produto"><fa-icon class="fa-lg" [icon]="farTrashAlt"></fa-icon></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="flex-item-arrows">
+    <button class="icon-button" type="button" aria-label="botão para passar página para esquerda"><fa-icon class="fa-3x text-primary" [icon]="farArrowAltCircleLeft"></fa-icon></button>
+    <button class="icon-button" type="button" aria-label="botão para passar página para direita"><fa-icon class="fa-3x text-primary" [icon]="farArrowAltCircleRight"></fa-icon></button>
+  </div>
+</div>

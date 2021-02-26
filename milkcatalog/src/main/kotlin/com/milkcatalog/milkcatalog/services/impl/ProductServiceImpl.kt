@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service
 @Service
 data class ProductServiceImpl(@Autowired val productRepository: ProductRepository): ProductService {
 
-    //Uses JpaRepository findAll method to return a ProductEntity list of all products
+    //Uses JpaRepository findAll method to return a ProductEntity list of all product
     override fun listAll(): List<ProductEntity> {
         return productRepository.findAll()
     }

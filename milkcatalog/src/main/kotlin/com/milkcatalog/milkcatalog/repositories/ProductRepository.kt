@@ -10,11 +10,11 @@ import org.springframework.data.jpa.repository.Query
 
 @Repository
 interface ProductRepository : JpaRepository<ProductEntity, String>{
-    //Custom Query which returns list of products that your code starts with the code passed by parameter
+    //Custom Query which returns list of product that your code starts with the code passed by parameter
     @Query(value="SELECT * FROM product_entity WHERE code LIKE :code%", nativeQuery = true)
         fun findProductByCode(code: String): List<ProductEntity>
 
-    //Custom Query which returns the list of products whose name contains the name passed by parameter
+    //Custom Query which returns the list of product whose name contains the name passed by parameter
     @Query(value="SELECT * FROM product_entity WHERE name LIKE %:name%", nativeQuery = true)
         fun findProductByName(name: String): List<ProductEntity>
 }
