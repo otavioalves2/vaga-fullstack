@@ -10,20 +10,30 @@ import { SearchComponent } from './search/search.component';
 import { RegisterComponent } from './register/register.component';
 
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductDataTableComponent } from './product-data-table/product-data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     SearchComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductDataTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
