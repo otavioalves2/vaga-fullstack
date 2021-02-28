@@ -31,14 +31,15 @@ export class ProductDataTableComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe((data: Product[]) =>{
-      this.dataSource.products = data;
-    })
   }
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+    this.productService.getProducts().subscribe((data: Product[]) =>{
+      this.dataSource.products = data;
+
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this.table.dataSource = this.dataSource;
+    })
   }
 }
