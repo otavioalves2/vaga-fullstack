@@ -15,6 +15,9 @@ import { ProductDataTableComponent } from './product-data-table/product-data-tab
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ToastrModule } from 'ngx-toastr';
+import { ProductDataTableDataSource } from './product-data-table/product-data-table-datasource';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,9 +36,11 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ToastrModule.forRoot(),
+    NgbModule
   ],
-  providers: [],
+  providers: [ ProductDataTableComponent, SearchComponent, ProductDataTableDataSource],
   bootstrap: [AppComponent]
 })
 export class AppModule {
