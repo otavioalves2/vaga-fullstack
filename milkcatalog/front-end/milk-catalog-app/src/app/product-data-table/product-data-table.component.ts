@@ -8,6 +8,7 @@ import { ProductDataTableDataSource } from './product-data-table-datasource';
 import { faArrowAltCircleLeft, faArrowAltCircleRight, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { ActivatedRoute } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-data-table',
@@ -31,7 +32,7 @@ export class ProductDataTableComponent implements AfterViewInit {
   //New product name coming from TextBox in Modal Window for edit function
   productNewName!: string;
   
-  constructor(private route: ActivatedRoute, public dataSource: ProductDataTableDataSource, private productService: ProductService, private modalService: NgbModal) {}
+  constructor(private route: ActivatedRoute, public dataSource: ProductDataTableDataSource, private productService: ProductService, private modalService: NgbModal, private toastr: ToastrService) {}
   
   //Get the "filter" value from the search route, and then send it to the updateData function
   ngAfterViewInit(){
@@ -82,7 +83,10 @@ export class ProductDataTableComponent implements AfterViewInit {
     this.productService.delete(code)
     .subscribe(
       data=>{
-         console.log(data);
+        console.log(data);
+      },
+      err=>{
+        this.toastr.success('Sucesso!', 'O produto foi removido.');
       });
 
     this.refresh();
@@ -111,7 +115,8 @@ export class ProductDataTableComponent implements AfterViewInit {
     this.productService.update(data.code, data)
     .subscribe(
       data=>{
-         console.log(data);
+        this.toastr.success('Sucesso!', 'O produto foi atualizado.');
+        console.log(data);
       });
     this.refresh();
   }
