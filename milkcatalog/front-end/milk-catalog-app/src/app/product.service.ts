@@ -15,4 +15,20 @@ export class ProductService {
   getProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(`${this.baseUrl}`);
   }
+
+  getProductsByFilter(filter: any): Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.baseUrl}` + "/" + filter);
+  }
+  
+  create(data: any): Observable<any> {
+    return this.http.post(this.baseUrl, data);
+  }
+
+  update(code: any, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${code}`, data);
+  }
+
+  delete(code: any): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${code}`);
+  }
 }

@@ -68,8 +68,8 @@ export class ProductDataTableDataSource extends DataSource<Product> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'code': return compare(a.code, b.code, isAsc);
-        case 'name': return compare(a.name, b.name, isAsc);
+        case 'code': return compare(+a.code, +b.code, isAsc);
+        case 'name': return compare(a.name.toLocaleUpperCase(), b.name.toLocaleUpperCase(), isAsc);
         default: return 0;
       }
     });
@@ -77,6 +77,6 @@ export class ProductDataTableDataSource extends DataSource<Product> {
 }
 
 /** Simple sort comparator for example Code/Name columns (for client-side sorting). */
-function compare(a: string , b: string , isAsc: boolean) {
+function compare(a: string | number, b: string | number, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
