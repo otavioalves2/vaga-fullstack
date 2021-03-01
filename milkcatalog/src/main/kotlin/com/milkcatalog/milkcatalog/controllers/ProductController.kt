@@ -41,12 +41,12 @@ class ProductController(@Autowired val productService: ProductService) {
     fun get(@PathVariable("id") id: String): List<ProductEntity> {
         val product = productService.findProductByCode(id) + productService.findProductByName(id)
 
-        return product
+        return product.distinctBy { it.code }
     }
 
     //Endpoint for the PUT method with <code_parameter>(our id)/update,
     //updates the product corresponding to the code entered in the parameter
-    @RequestMapping(value = ["/{id}/update"],
+    @RequestMapping(value = ["/{id}"],
             method = [RequestMethod.PUT],
             consumes = [MediaType.APPLICATION_JSON_VALUE],
             produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -61,6 +61,6 @@ class ProductController(@Autowired val productService: ProductService) {
             produces = [MediaType.APPLICATION_JSON_VALUE])
     fun delete(@PathVariable("id") id: String): String {
         productService.delete(id)
-        return "DELETED"
+        return "Deleted";
     }
 }
