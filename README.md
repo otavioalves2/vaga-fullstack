@@ -64,7 +64,7 @@ Além do funcionamento do sistema, será avaliada a organização do código, co
 
 ### Instalar dependências
 
-No diretório ../milk-catalog-app:
+No diretório ../front-end/milk-catalog-app:
 
     > npm install
 
@@ -97,7 +97,7 @@ No diretório ../milk-catalog-app:
 
 No diretório ../milkcatalog/:
 
-    > docker-compose -f docker-compose.yaml
+    > docker-compose -f docker-compose.yaml up
 
 Acessar aplicação em:
 

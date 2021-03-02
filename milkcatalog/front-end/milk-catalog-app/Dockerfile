@@ -1,7 +1,6 @@
 FROM node:14.16-alpine AS build
 WORKDIR /app
 COPY package.json ./
-RUN npm install
 COPY . .
 ARG env=prod
 RUN npm run build
