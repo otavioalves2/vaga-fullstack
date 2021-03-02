@@ -55,7 +55,7 @@ class ProductControllerTest {
     //Test save product
     @Test
     fun `test save product`(){
-        val product = productRepository.save(ProductEntity(code = "57", name = "Leiteste4"))
+        val product = productRepository.save(ProductEntity(code = "57", name = "Leiteste3"))
 
         val json = ObjectMapper().writeValueAsString(product)
 

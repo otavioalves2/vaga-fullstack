@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  back-end:
+    image: milkcatalogapp-backend-image
+    container_name: milkcatalogapp-backend-container
+    ports:
+      - 8080:8080
+  front-end:
+    image: milkcatalogapp-frontend-image
+    container_name: milkcatalogapp-frontend-container
+    ports:
+      - 4200:4200
