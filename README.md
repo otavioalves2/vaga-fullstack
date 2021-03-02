@@ -59,8 +59,47 @@ Além do funcionamento do sistema, será avaliada a organização do código, co
 
 ## Instruções para construção (build) e execução (run) do frontend
 
-<preencha as instruções nesse tópico>
+- Angular CLI: 11.2.2
+- Node: 14.16.0
+
+### Instalar dependências
+
+No diretório ../milk-catalog-app:
+
+    > npm install
+
+### Executar no ambiente local (run)
+    > ng serve
+### Criar Docker Image (build)
+
+    > docker build -t milkcatalogapp-frontend-image .
+
+
 
 ## Instruções para construção (build) e execução (run) do backend
 
-<preencha as instruções nesse tópico>
+- JDK 11
+- Gradle 6.8.2
+
+### Executar no ambiente local (run)
+
+    > ./gradlew bootRun
+
+### Buildando arquivo jar (build)
+
+    > ./gradlew bootJar
+
+### Criar Docker Image (build)
+
+    > docker build -t milkcatalogapp-backend-image .
+
+## Rodar aplicação com Docker Compose (após gerar as imagens do back-end e front-end)
+
+No diretório ../milkcatalog/:
+
+    > docker-compose -f docker-compose.yaml
+
+Acessar aplicação em:
+
+    http://localhost:4200/
+
