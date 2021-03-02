@@ -3,6 +3,7 @@ package com.milkcatalog.milkcatalog.controllers
 import com.milkcatalog.milkcatalog.entity.ProductEntity
 import com.milkcatalog.milkcatalog.services.ProductService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 
@@ -25,6 +26,7 @@ class ProductController(@Autowired val productService: ProductService) {
 
     //Endpoint for the POST method without parameters,
     //inserts the JSON ProductEntity object in the request body into the database
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = [""],
             method = [RequestMethod.POST],
             consumes = [MediaType.APPLICATION_JSON_VALUE],
